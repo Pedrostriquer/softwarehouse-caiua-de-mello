@@ -1,0 +1,144 @@
+.footer-section {
+    width: 100%;
+    padding: 60px 24px 30px;
+    margin-top: 120px;
+    border-top: 1px solid hsl(240, 9%, 17%);
+    background-color: hsl(240, 15%, 9%);
+    color: hsl(0, 0%, 83%);
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* Formulário do WhatsApp */
+.whatsapp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1; /* Ocupa o espaço disponível */
+    min-width: 300px; /* Largura mínima */
+}
+
+.form-input {
+    background-color: hsl(240, 9%, 12%);
+    border: 1px solid hsl(240, 9%, 25%);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: hsl(0, 0%, 95%);
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+.form-input::placeholder {
+    color: hsl(0, 0%, 50%);
+}
+
+.form-input:focus {
+    border-color: hsl(266, 92%, 58%);
+}
+
+/* Campo de mensagem maior */
+.message-input {
+    resize: vertical; /* Permite que o usuário redimensione verticalmente */
+    min-height: 80px;
+}
+
+.form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #25D366; /* Cor do WhatsApp */
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+    background-color: #128C7E;
+    transform: scale(1.02);
+}
+
+/* Informações e Redes Sociais */
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-details h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.email-link {
+    color: hsl(0, 0%, 83%);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: hsl(266, 92%, 58%);
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: hsl(0, 0%, 70%);
+    font-size: 24px; /* Tamanho do ícone */
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: hsl(0, 0%, 100%);
+}
+
+/* Copyright */
+.copyright-text {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: hsl(0, 0%, 50%);
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid hsl(240, 9%, 17%);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .whatsapp-form, .footer-info {
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+    }
+}

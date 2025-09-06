@@ -1,0 +1,223 @@
+/* Container principal da seção */
+.ai-agent-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    width: 100%;
+    max-width: 1120px;
+    padding: 0 24px;
+    margin-bottom: 164px;
+}
+
+.ai-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    max-width: 600px;
+}
+
+.ai-title { 
+    font-family: "DM Sans", sans-serif; 
+    font-size: 40px; 
+    font-weight: 500; 
+    line-height: 1.2; 
+    color: #fff; 
+}
+
+.ai-subtitle { 
+    font-family: "DM Sans", sans-serif; 
+    font-size: 18px; 
+    line-height: 1.6; 
+    color: rgba(255, 255, 255, 0.8); 
+}
+
+/* Card principal que contém os widgets */
+.ai-platform-card {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    background-color: hsla(240, 15%, 9%, 1);
+    background-image: radial-gradient(at 0% 0%, hsla(263, 93%, 56%, 0.15) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, hsla(306, 100%, 57%, 0.15) 0px, transparent 50%);
+    border-radius: 1.5rem;
+    box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.05) inset;
+    overflow: hidden;
+}
+
+/* A borda animada será usada APENAS no card superior */
+.ai-platform-card .card__border {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-image: linear-gradient(0deg, hsl(0, 0%, 100%) -50%, hsl(0, 0%, 40%) 100%);
+  border-radius: 1.5rem;
+}
+
+.ai-platform-card .card__border::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 10rem;
+  background-image: linear-gradient(
+    0deg, hsla(0, 0%, 100%, 0) 0%, hsl(277, 95%, 60%) 40%,
+    hsl(277, 95%, 60%) 60%, hsla(0, 0%, 40%, 0) 100%
+  );
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Estilos dos Widgets internos */
+.feature-widget {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: hsla(240, 15%, 12%, 0.5);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(240, 9%, 17%);
+}
+
+.widget-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, hsl(266, 92%, 28%), hsl(266, 92%, 18%));
+    border-radius: 12px;
+}
+
+.widget-text { display: flex; flex-direction: column; gap: 0.25rem; }
+.widget-title { font-size: 1.1rem; font-weight: 500; color: hsl(0, 0%, 100%); }
+.widget-description { font-size: 0.9rem; color: hsl(0, 0%, 83%); line-height: 1.5; }
+
+
+/* --- ESTILOS PARA A SEÇÃO DE PREÇOS (CORRIGIDO) --- */
+
+.pricing-container {
+    width: 100%;
+    margin-top: 64px;
+}
+
+.pricing-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+}
+
+.pricing-card {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(266, 92%, 58%);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: hsla(240, 15%, 12%, 0.5);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Card de Destaque (AGORA CORRIGIDO E SIMPLIFICADO) */
+.pricing-card.highlighted {
+    background: var(--black); /* Fundo sólido e opaco */
+    transform: scale(1.05);
+    /* A borda agora é normal, apenas um pouco mais clara para destacar */
+    border: 1px solid hsl(240, 9%, 25%);
+}
+
+.pricing-card.highlighted:hover {
+    transform: scale(1.08) translateY(-8px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    z-index: 2;
+}
+
+.plan-name { font-size: 1.25rem; font-weight: 500; color: var(--paragraph); }
+.plan-price { font-size: 2.5rem; font-weight: 600; color: var(--white); line-height: 1; }
+.plan-price .price-period { font-size: 1rem; font-weight: 400; color: var(--paragraph); margin-left: 0.5rem; }
+.plan-description { font-size: 0.9rem; color: var(--paragraph); line-height: 1.6; min-height: 60px; }
+.pricing-card .line { width: 100%; height: 1px; background-color: var(--line); border: none; margin: 0.5rem 0; }
+.pricing-card .card__list { display: flex; flex-direction: column; gap: 1rem; padding: 0; list-style: none; margin-bottom: 1.5rem; }
+.pricing-card .card__list_item { display: flex; align-items: center; gap: 0.75rem; }
+.pricing-card .check { display: flex; justify-content: center; align-items: center; min-width: 1.25rem; height: 1.25rem; background-color: var(--primary); border-radius: 50%; flex-shrink: 0; }
+.pricing-card .check_svg { width: 0.8rem; height: 0.8rem; fill: var(--white); }
+.pricing-card .list_text { font-size: 0.9rem; color: var(--white); }
+.integration-fee { font-size: 0.8rem; color: var(--paragraph); font-style: italic; }
+
+.pricing-card .button {
+  margin-top: auto; cursor: pointer; padding: 0.75rem 1rem; width: 100%;
+  background-image: linear-gradient(90deg, rgba(94, 58, 238, 1) 0%, rgba(197, 107, 240, 1) 100%);
+  font-size: 1rem; font-weight: 500; color: var(--white);
+  border: 0; border-radius: 9999px;
+  box-shadow: inset 0 -2px 25px -4px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.pricing-card .button:hover {
+    transform: scale(1.03);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .pricing-cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .pricing-card.highlighted {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 809px) {
+    .ai-agent-section {
+        padding: 0 16px;
+        margin-bottom: 128px;
+    }
+    .ai-title { font-size: 32px; }
+    .ai-platform-card { padding: 1.5rem; }
+}

@@ -1,0 +1,149 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    border-radius: 16px;
+    background-color: rgba(18, 18, 28, 0.7); /* Tom azulado escuro */
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(240, 9%, 17%);
+}
+
+/* Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+.logo-image {
+    height: 80px; /* Altura ajustada para o novo padding */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Navegação Desktop */
+.desktop-nav {
+    display: flex;
+    gap: 40px;
+    padding-left: 115px;
+}
+.desktop-nav a {
+    font-family: "DM Sans", sans-serif;
+    color: hsl(0, 0%, 83%);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+.desktop-nav a:hover {
+    color: hsl(0, 0%, 100%);
+}
+
+/* --- NOVO BOTÃO "ENTRE EM CONTATO" --- */
+.header-button {
+    --primary: hsl(266, 92%, 58%);
+    --secondary: hsl(284, 100%, 84%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    background-image: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px hsla(277, 95%, 60%, 0.4);
+}
+
+.button-text {
+    display: inline-block; /* Necessário para o transform do hover */
+}
+
+.button-icon {
+    display: flex; /* Para centralizar o ícone */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+/* --- ESTILOS MOBILE --- */
+.mobile-menu-icon { display: none; }
+
+@media (max-width: 809.98px) {
+    .header-container {
+        padding: 12px 24px;
+        top: 16px;
+        width: calc(100% - 32px);
+    }
+    
+    .desktop-nav, .desktop-cta {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+        z-index: 110;
+        width: 24px;
+        height: 24px;
+    }
+
+    .hamburger-line {
+        width: 22px; height: 2px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 7px;
+        transform-origin: center;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .mobile-menu-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 100px 24px 40px;
+        background-color: rgba(11, 10, 18, 0.95);
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+        z-index: 99;
+        text-align: center;
+    }
+
+    .mobile-menu-dropdown a {
+        font-family: "DM Sans", sans-serif;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .header-button.mobile {
+        justify-content: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto 0;
+    }
+}

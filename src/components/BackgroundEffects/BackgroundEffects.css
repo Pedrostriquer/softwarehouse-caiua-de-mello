@@ -1,0 +1,81 @@
+/* src/components/BackgroundEffects/BackgroundEffects.css */
+
+.background-effects-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Coloca atrás de todo o conteúdo */
+  pointer-events: none; /* Garante que não seja clicável */
+}
+
+.background-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-line {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.02); /* Cor e opacidade do grid */
+}
+
+.grid-line.vertical {
+  width: 1px;
+  height: 100%;
+  top: 0;
+}
+
+.grid-line.horizontal {
+  height: 1px;
+  width: 100%;
+  left: 0;
+}
+
+/* --- Estilos para as Linhas Animadas --- */
+
+/* Keyframes para a animação de descida */
+@keyframes descend {
+  0% {
+    transform: translateY(-150px); /* Começa acima da tela */
+  }
+  100% {
+    transform: translateY(100vh); /* Termina bem abaixo da tela */
+  }
+}
+
+/* O container que segura e esconde a linha */
+.animated-line-container {
+  position: absolute;
+  top: 0;
+  height: 100vh; /* Ocupa a altura da tela */
+  width: 1px;
+  overflow: hidden; /* Essencial para o efeito de aparecer/desaparecer */
+  
+  /* A animação é aplicada aqui para que o delay funcione corretamente */
+  animation-name: descend-container; /* Usaremos para o delay, não para o movimento */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* A linha de luz com o gradiente */
+.animated-line-glow {
+  position: absolute;
+  width: 100%;
+  height: 152px; /* Altura do "cometa" de luz */
+  background: linear-gradient(rgba(2, 3, 28, 0) 19.5%, rgba(213, 199, 255, 0.4) 100%);
+  border-radius: 4px;
+  animation: descend infinite linear; /* A animação de movimento é aplicada aqui */
+  animation-duration: inherit; /* Pega a duração do container */
+  animation-delay: inherit; /* Pega o delay do container */
+}
+
+/* Overlay para suavizar as bordas */
+.animated-line-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.02) 0%, rgba(2, 3, 28, 0) 30%, rgba(2, 3, 28, 0) 70%, rgba(255, 255, 255, 0.02) 100%);
+}
