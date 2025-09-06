@@ -13,6 +13,8 @@ body {
   
   /* Para garantir que o texto seja legível por padrão */
   color: white; 
+  overscroll-behavior: none;
+
 }
 
 html {
