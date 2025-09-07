@@ -1,138 +1,218 @@
 /* Container principal da seção */
 .feature-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
-    width: 100%;
-    max-width: 1120px;
-    padding: 0 24px;
-    margin-bottom: 164px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  width: 100%;
+  max-width: 1120px;
+  padding: 0 24px;
+  margin-bottom: 164px;
+  background-color: rgb(6, 0, 20); /* Cor de fundo unificada */
 }
 
 .feature-text-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 24px;
-    max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  max-width: 650px; /* Um pouco mais de largura para o subtitulo */
 }
 
-.feature-title { font-family: "DM Sans", sans-serif; font-size: 40px; font-weight: 500; line-height: 1.2; color: #fff; }
-.feature-subtitle { font-family: "DM Sans", sans-serif; font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.8); }
+/* --- MELHORIA VISUAL NA FONTE --- */
+.feature-title { 
+  font-family: "DM Sans", sans-serif; 
+  font-size: 42px; 
+  font-weight: 500; 
+  line-height: 1.2; 
+  color: #fff; 
+  letter-spacing: -0.5px;
+}
+.feature-subtitle { 
+  font-family: "DM Sans", sans-serif; 
+  font-size: 18px; 
+  line-height: 1.6; 
+  color: rgba(255, 255, 255, 0.8); 
+}
 
 /* Grid para os cards */
 .features-grid {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 24px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
 }
 
-/* Card principal usa a classe .card para herdar os estilos de Uiverse */
 .main-feature-card {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
+grid-column: 1 / 2;
+grid-row: 1 / 3;
 }
 
 .card {
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(240, 15%, 9%);
-  --paragraph: hsl(0, 0%, 83%);
-  --line: hsl(240, 9%, 17%);
-  --primary: hsl(266, 92%, 58%);
+--white: hsl(0, 0%, 100%);
+--black: hsl(240, 15%, 9%);
+--paragraph: hsl(0, 0%, 83%);
+--line: hsl(240, 9%, 17%);
+--primary: hsl(266, 92%, 58%);
 
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
-  width: 100%; /* Ocupa todo o espaço do grid */
-  height: 100%; /* Ocupa todo o espaço do grid */
-  background-color: hsla(240, 15%, 9%, 1);
-  background-image: radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
-    radial-gradient(at 0% 64%, hsla(263, 93%, 56%, 0.15) 0px, transparent 85%),
-    radial-gradient(at 100% 99%, hsla(306, 100%, 57%, 0.15) 0px, transparent 85%);
-  border-radius: 1rem;
-  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.05) inset;
-  overflow: hidden; 
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 1.25rem; /* Ajuste no espaçamento interno */
+padding: 2.5rem; /* Mais preenchimento */
+width: 100%;
+height: 100%;
+background-color: hsla(240, 15%, 9%, 1);
+background-image: radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+  radial-gradient(at 0% 64%, hsla(263, 93%, 56%, 0.1) 0px, transparent 85%),
+  radial-gradient(at 100% 99%, hsla(306, 100%, 57%, 0.1) 0px, transparent 85%);
+border-radius: 1.5rem; /* Bordas mais arredondadas */
+border: 1px solid hsl(240, 9%, 17%); /* Borda padrão adicionada */
+box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.2);
 }
 
-.card .card__border {
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  background-image: linear-gradient(0deg, hsl(0, 0%, 100%) -50%, hsl(0, 0%, 40%) 100%);
-  border-radius: 1rem;
+/* --- REGRAS DA BORDA ANIMADA REMOVIDAS --- */
+
+.card > * { 
+  position: relative; 
+  z-index: 2; 
 }
 
-.card .card__border::before {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 10rem;
-  background-image: linear-gradient(
-    0deg, hsla(0, 0%, 100%, 0) 0%, hsl(277, 95%, 60%) 40%,
-    hsl(277, 95%, 60%) 60%, hsla(0, 0%, 40%, 0) 100%
-  );
-  animation: rotate 8s linear infinite;
+/* --- MELHORIA VISUAL NA FONTE DO CARD PRINCIPAL --- */
+.card .card_title { 
+  font-size: 1.75rem; 
+  color: var(--white); 
+  font-weight: 600; 
+  letter-spacing: -0.3px;
 }
-
-@keyframes rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+.card .card_paragraph { 
+  margin-top: 0.5rem; 
+  width: 100%; 
+  font-size: 1.05rem; 
+  color: var(--paragraph); 
+  line-height: 1.6; 
 }
-
-.card > * { position: relative; z-index: 2; }
-.card .card_title { font-size: 1.5rem; color: var(--white); font-weight: 600; }
-.card .card_paragraph { margin-top: 0.5rem; width: 90%; font-size: 1rem; color: var(--paragraph); line-height: 1.5; }
-.card .line { width: 100%; height: 1px; background-color: var(--line); border: none; margin: 0.5rem 0; }
-.card .card__list { display: flex; flex-direction: column; gap: 1rem; padding: 0; list-style: none; }
-.card .card__list_item { display: flex; align-items: center; gap: 0.75rem; }
-.card .check { display: flex; justify-content: center; align-items: center; min-width: 1.25rem; height: 1.25rem; background-color: var(--primary); border-radius: 50%; flex-shrink: 0; }
-.card .check_svg { width: 0.8rem; height: 0.8rem; fill: var(--black); }
-.card .list_text { font-size: 1rem; color: var(--white); }
+.card .line { 
+  width: 100%; 
+  height: 1px; 
+  background-color: var(--line); 
+  border: none; 
+  margin: 0.5rem 0; 
+}
+.card .card__list { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1rem; 
+  padding: 0; 
+  list-style: none; 
+}
+.card .card__list_item { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.75rem; 
+}
+.card .check { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  min-width: 1.25rem; 
+  height: 1.25rem; 
+  background-color: var(--primary); 
+  border-radius: 50%; flex-shrink: 0; 
+}
+.card .check_svg { 
+  width: 0.8rem; 
+  height: 0.8rem; 
+  fill: var(--black); 
+}
+.card .list_text { 
+  font-size: 1.05rem; 
+  color: var(--white); 
+}
 .card .button {
-    margin-top: auto; cursor: pointer; padding: 0.75rem 1rem; width: 100%; 
-    background-image: linear-gradient(90deg, rgba(94, 58, 238, 1) 0%, rgba(197, 107, 240, 1) 100%);
-    font-size: 1rem; font-weight: 500; color: var(--white); border: 0; border-radius: 9999px;
-    box-shadow: inset 0 -2px 25px -4px rgba(255, 255, 255, 0.1); transition: transform 0.2s ease;
+  margin-top: auto; 
+  cursor: pointer; 
+  padding: 0.85rem 1rem; 
+  width: 100%; 
+  background-image: linear-gradient(90deg, rgba(94, 58, 238, 1) 0%, rgba(197, 107, 240, 1) 100%);
+  font-size: 1.1rem; 
+  font-weight: 500; 
+  color: var(--white); 
+  border: 0; 
+  border-radius: 9999px;
+  box-shadow: inset 0 -2px 25px -4px rgba(255, 255, 255, 0.1); 
+  transition: transform 0.2s ease;
 }
-.card .button:hover { transform: scale(1.02); }
+.card .button:hover { 
+  transform: scale(1.02); 
+}
 
 /* --- CARDS DE SUPORTE --- */
 .sub-feature-card {
-    background-color: #0a0b24; border: 1px solid rgba(39, 41, 44, 0.5);
-    border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column;
-    gap: 1rem; justify-content: center; transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: #0a0b24; 
+  border: 1px solid rgba(39, 41, 44, 0.5);
+  border-radius: 1rem; 
+  padding: 1.75rem; /* Mais preenchimento */
+  display: flex; 
+  flex-direction: column;
+  gap: 1rem; 
+  justify-content: center; 
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
-.sub-feature-card:hover { transform: translateY(-5px); background-color: hsl(240, 15%, 12%); }
-.sub-feature-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: 12px; }
-.sub-feature-title { font-size: 1.2rem; font-weight: 500; color: var(--white); }
-.sub-feature-text { font-size: 0.9rem; color: var(--paragraph); line-height: 1.6; }
+.sub-feature-card:hover { 
+  transform: translateY(-5px); 
+  background-color: hsl(240, 15%, 12%); 
+}
+.sub-feature-icon { 
+  width: 40px; 
+  height: 40px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: rgba(255, 255, 255, 0.05); 
+  border-radius: 12px; 
+}
+
+/* --- MELHORIA VISUAL NA FONTE DOS CARDS DE SUPORTE --- */
+.sub-feature-title { 
+  font-size: 1.25rem; 
+  font-weight: 600; 
+  color: var(--white); 
+}
+.sub-feature-text { 
+  font-size: 0.95rem; 
+  color: var(--paragraph); 
+  line-height: 1.7; 
+}
 
 /* Card de Destaque */
 .highlight-card {
-    background: linear-gradient(45deg, hsl(266, 92%, 20%), hsl(240, 15%, 12%));
-    text-align: center; align-items: center;
+  background: linear-gradient(45deg, hsl(266, 92%, 20%), hsl(240, 15%, 12%));
+  text-align: center; 
+  align-items: center;
 }
-.highlight-value { font-size: 3rem; font-weight: 600; color: var(--white); line-height: 1; }
-.highlight-card .sub-feature-title { color: rgba(255, 255, 255, 0.9); }
-.highlight-card .sub-feature-text { color: rgba(255, 255, 255, 0.7); max-width: 80%; }
+.highlight-value { 
+  font-size: 3.2rem; 
+  font-weight: 700; 
+  color: var(--white); 
+  line-height: 1; 
+}
+.highlight-card .sub-feature-title { 
+  color: rgba(255, 255, 255, 0.9); 
+}
+.highlight-card .sub-feature-text { 
+  color: rgba(255, 255, 255, 0.7); 
+  max-width: 90%; 
+}
 
 /* Responsividade */
 @media (max-width: 809px) {
-    .features-grid { grid-template-columns: 1fr; }
-    .main-feature-card { grid-row: auto; }
+  .features-grid { 
+      grid-template-columns: 1fr; 
+  }
+  .main-feature-card { 
+      grid-row: auto; 
+  }
 }

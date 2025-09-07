@@ -8,6 +8,8 @@ import BackgroundEffects from './components/BackgroundEffects/BackgroundEffects'
 import AiAgentSection from './components/AiAgentSection/AiAgentSection'; // <-- IMPORTE
 import FAQSection from './components/FAQSection/FAQSection'; // <-- IMPORTE AQUI
 import Footer from './components/Footer/Footer'; // <-- IMPORTE AQUI
+import PricingSimulator from './components/PricingSimulator/PricingSimulator'; // O import funciona da mesma forma
+
 
 
   
@@ -21,6 +23,7 @@ function App() {
         <HeroSection />
         <FinancialWhiteLabelSection /> {/* <-- ADICIONE AQUI */}
         <AiAgentSection /> {/* <-- ADICIONE AQUI */}
+        <PricingSimulator />
         <FAQSection /> 
         <Footer /> {/* <-- ADICIONE AQUI */}
         {/* Próximos componentes virão aqui */}

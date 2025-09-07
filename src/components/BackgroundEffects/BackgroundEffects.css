@@ -9,6 +9,8 @@
   overflow: hidden;
   z-index: -1; /* Coloca atrás de todo o conteúdo */
   pointer-events: none; /* Garante que não seja clicável */
+  background-color: rgb(6, 0, 20);
+
 }
 
 .background-grid {

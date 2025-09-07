@@ -24,7 +24,6 @@ const ContractsIcon = () => (
 
 
 const FeatureSection = () => {
-    // Variantes para animação de entrada
     const cardAnimation = {
         initial: { opacity: 0, y: 50, scale: 0.95 },
         whileInView: { opacity: 1, y: 0, scale: 1 },
@@ -33,7 +32,7 @@ const FeatureSection = () => {
     };
 
   return (
-<section className="feature-section" id="whitelabel">
+    <section className="feature-section" id="whitelabel">
       <motion.div 
         className="feature-text-content"
         initial={{ opacity: 0, y: 40 }}
@@ -41,9 +40,9 @@ const FeatureSection = () => {
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="feature-title">Soluções White Label para Captação de Recursos</h2>
+        <h2 className="feature-title">Sua Própria Plataforma de Ativos Digitais</h2>
         <p className="feature-subtitle">
-          Potencialize seu negócio com nossa plataforma financeira personalizada, projetada para a venda de contratos e tokenização de ativos.
+          Oferecemos uma solução White Label robusta e personalizável, permitindo que sua empresa lance uma plataforma de investimentos com a sua própria marca.
         </p>
       </motion.div>
       
@@ -51,29 +50,32 @@ const FeatureSection = () => {
         {/* Card Principal - Maior */}
         <motion.div
             className="card main-feature-card"
-            {...cardAnimation} // Aplica a animação de entrada
+            {...cardAnimation}
             transition={{ ...cardAnimation.transition, delay: 0.2 }}
         >
-            <div className="card__border"></div>
             <div className="card_title__container">
-                <span className="card_title">Plataforma Financeira Completa</span>
+                <span className="card_title">Ecossistema Financeiro Completo</span>
                 <p className="card_paragraph">
-                    Tudo que você precisa para lançar seu projeto e captar recursos de forma segura, com a sua própria marca.
+                    De A a Z, nossa solução oferece tudo que você precisa para captar recursos de forma segura, transparente e eficiente, sob a identidade visual da sua empresa.
                 </p>
             </div>
             <hr className="line" />
             <ul className="card__list">
                 <li className="card__list_item">
                     <span className="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="check_svg"><path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd"></path></svg></span>
-                    <span className="list_text">Emissão e Gestão de Tokens</span>
+                    <span className="list_text">Emissão e Gestão de Tokens (RWA)</span>
                 </li>
                 <li className="card__list_item">
                     <span className="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="check_svg"><path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd"></path></svg></span>
-                    <span className="list_text">Venda de Contratos Digitais</span>
+                    <span className="list_text">Venda de Contratos e Ativos Digitais</span>
                 </li>
                 <li className="card__list_item">
                     <span className="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="check_svg"><path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd"></path></svg></span>
-                    <span className="list_text">Dashboard para Investidores</span>
+                    <span className="list_text">Dashboard Analítico para Investidores</span>
+                </li>
+                <li className="card__list_item">
+                    <span className="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="check_svg"><path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd"></path></svg></span>
+                    <span className="list_text">Processamento de Pagamentos Integrado</span>
                 </li>
             </ul>
             <button className="button">Agende uma Chamada</button>
@@ -86,8 +88,8 @@ const FeatureSection = () => {
             transition={{ ...cardAnimation.transition, delay: 0.4 }}
         >
           <div className="highlight-value">+70M</div>
-          <h4 className="sub-feature-title">Movimentados</h4>
-          <p className="sub-feature-text">em nossa plataforma white label, validando a robustez e confiança da nossa solução.</p>
+          <h4 className="sub-feature-title">Transacionados</h4>
+          <p className="sub-feature-text">em ativos através de nossas plataformas, validando a robustez e a confiança do mercado em nossa tecnologia.</p>
         </motion.div>
         
         {/* Card de Suporte 2 */}
@@ -97,8 +99,8 @@ const FeatureSection = () => {
             transition={{ ...cardAnimation.transition, delay: 0.5 }}
         >
           <div className="sub-feature-icon"><TokenizationIcon /></div>
-          <h4 className="sub-feature-title">Tokenização</h4>
-          <p className="sub-feature-text">Converta qualquer ativo em tokens digitais para liquidez imediata.</p>
+          <h4 className="sub-feature-title">Tokenização de Ativos</h4>
+          <p className="sub-feature-text">Transforme ativos do mundo real (RWA), como imóveis ou recebíveis, em tokens digitais para democratizar o acesso e gerar liquidez imediata.</p>
         </motion.div>
       </div>
     </section>
