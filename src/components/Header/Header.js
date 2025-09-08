@@ -37,7 +37,7 @@ const Header = () => {
   // Links de navegação atualizados
   const navLinks = [
     { title: 'Home', href: '#hero' },
-    { title: 'White Label', href: '#whitelabel' },
+    { title: 'WhiteLabel', href: '#whitelabel' },
     { title: 'Agente IA', href: '#agente-ia' },
     // Adicione um link para Planos se tiver uma seção de preços dedicada
     // { title: 'Planos', href: '#pricing' }, 

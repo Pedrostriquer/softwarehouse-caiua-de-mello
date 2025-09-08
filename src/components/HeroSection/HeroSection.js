@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import './HeroSection.css';
 
 // Certifique-se de que o caminho para sua imagem está correto
-import dashboardImage from '../../assets/images/dashboard.png'; 
+import dashboardImage from "../../assets/images/Untitled design (4) (1).png"; 
 
 const HeroSection = () => {
   // Ref para o container da imagem, para rastrear a rolagem

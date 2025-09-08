@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './AiAgentSection.css';
 
-// Ícones SVG (sem alteração)
-const LeadsIcon = () => ( <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 20V10M12 20V4M7 20V14" stroke="white" strokeOpacity="0.9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg> );
-const AdsIcon = () => ( <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 12C14.5 12 18.5 12 20.5 12C22.5 12 22.5 15 20.5 15C18.5 15 14.5 15 14.5 15M14.5 12L17.5 9M14.5 12L17.5 15" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M4 12H11.5M4 12C2 12 2 9 4 9C6 9 6 12 4 12ZM4 12C2 12 2 15 4 15C6 15 6 12 4 12Z" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg> );
-const MessagingIcon = () => ( <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg> );
+// Ícones SVG
+const LeadsIcon = () => ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 20V10M12 20V4M7 20V14" stroke="white" strokeOpacity="0.9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg> );
+const AdsIcon = () => ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 12C14.5 12 18.5 12 20.5 12C22.5 12 22.5 15 20.5 15C18.5 15 14.5 15 14.5 15M14.5 12L17.5 9M14.5 12L17.5 15" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M4 12H11.5M4 12C2 12 2 9 4 9C6 9 6 12 4 12ZM4 12C2 12 2 15 4 15C6 15 6 12 4 12Z" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg> );
+const MessagingIcon = () => ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg> );
 const CheckIcon = () => ( <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="check_svg"><path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd"></path></svg> );
 
-const AiAgentSection = () => {
+// O componente agora recebe a prop 'onPlanSelect' do App.js
+const AiAgentSection = ({ onPlanSelect }) => {
     const platformVariants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
@@ -17,6 +18,20 @@ const AiAgentSection = () => {
     const itemVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } }
+    };
+
+    // Função para rolar até o footer e definir a mensagem
+    const handlePlanClick = (planName) => {
+        // Define a mensagem no estado do App.js, se a função for fornecida
+        if (onPlanSelect) {
+            onPlanSelect(`Olá, tenho interesse em contratar o ${planName}.`);
+        }
+        
+        // Encontra o footer pelo ID e rola suavemente até ele
+        const footer = document.getElementById('contact');
+        if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     };
 
     return (
@@ -50,7 +65,6 @@ const AiAgentSection = () => {
                 </div>
                 <hr className="platform-divider" />
 
-                {/* --- WIDGETS DE FUNCIONALIDADES COM TEXTO ATUALIZADO --- */}
                 <motion.div className="feature-widget" variants={itemVariants}>
                     <div className="widget-icon"><LeadsIcon /></div>
                     <div className="widget-text">
@@ -74,7 +88,6 @@ const AiAgentSection = () => {
                 </motion.div>
             </motion.div>
 
-            {/* --- SEÇÃO DE PREÇOS (Sem alteração) --- */}
             <motion.div 
                 className="pricing-container"
                 initial={{ opacity: 0, y: 50 }}
@@ -100,7 +113,7 @@ const AiAgentSection = () => {
                             <span className="price-label">Mensalidade:</span>
                             <span className="price-value">R$ 699,00</span>
                         </div>
-                        <button className="button">Contratar</button>
+                        <button className="button" onClick={() => handlePlanClick('Plano Atendimento Inteligente')}>Contratar</button>
                     </div>
                     <div className="pricing-card">
                         <span className="plan-name">Plano Básico</span>
@@ -120,7 +133,7 @@ const AiAgentSection = () => {
                             <span className="price-label">Mensalidade:</span>
                             <span className="price-value">R$ 699,00</span>
                         </div>
-                        <button className="button">Contratar</button>
+                        <button className="button" onClick={() => handlePlanClick('Plano Básico')}>Contratar</button>
                     </div>
                     <div className="pricing-card highlighted">
                         <span className="plan-name">Plano Profissional</span>
@@ -143,7 +156,7 @@ const AiAgentSection = () => {
                             <span className="price-label">Mensalidade:</span>
                             <span className="price-value">R$ 899,00</span>
                         </div>
-                        <button className="button">Contratar</button>
+                        <button className="button" onClick={() => handlePlanClick('Plano Profissional')}>Contratar</button>
                     </div>
                     <div className="pricing-card">
                         <span className="plan-name">Plano Enterprise</span>
@@ -166,7 +179,7 @@ const AiAgentSection = () => {
                             <span className="price-label">Mensalidade:</span>
                             <span className="price-value">R$ 2.199,00 - R$ 3.458,00</span>
                         </div>
-                        <button className="button">Contratar</button>
+                        <button className="button" onClick={() => handlePlanClick('Plano Enterprise')}>Contratar</button>
                     </div>
                 </div>
             </motion.div>
