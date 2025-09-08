@@ -17,8 +17,8 @@ const HeroSection = () => {
   });
   
   // Mapeia o progresso da rolagem (0 a 1) para os valores da animação 3D
-  const scale = useTransform(scrollYProgress, [0, 1], [0.96, 1]);
-  const rotateX = useTransform(scrollYProgress, [0, 1], [8, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.86, 1]);
+  const rotateX = useTransform(scrollYProgress, [0, 1], [17, 1]);
   const translateY = useTransform(scrollYProgress, [0, 1], [-30, 0]);
 
   // Variantes para a animação de entrada do texto e botão

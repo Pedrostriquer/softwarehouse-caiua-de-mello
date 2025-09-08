@@ -20,12 +20,12 @@ function App() {
       <Header />
       <main>
         <HeroSection />
-        <FinancialWhiteLabelSection />
         
         {/* 3. Passar a função para definir a mensagem como uma prop */}
         <AiAgentSection onPlanSelect={setPrefilledMessage} />
         
         <PricingSimulator />
+        <FinancialWhiteLabelSection />
         <FAQSection /> 
         
         {/* 4. Passar a mensagem e uma função para limpá-la para o Footer */}
